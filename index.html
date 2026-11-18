@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff0f6">
+<title>Happy Birthday, Nayab Aapa 🎀</title>
+<style>
+:root{--pink:#db5b95;--deep:#914568;--ink:#754158;--pale:#fff0f6;--line:#f5c4d9}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(135deg,#fff7fb,#ffeaf3 55%,#fff5f9);color:var(--ink);font-family:"Trebuchet MS",system-ui,sans-serif;min-height:100vh}
+button{font:inherit}
+.wrap{max-width:760px;margin:auto;padding:18px 14px 36px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:4px 0 16px}
+.brand{font-weight:900;color:var(--pink);letter-spacing:.04em}
+.music,.navbtn,.next{border:1px solid var(--line);background:#fff9fc;color:var(--deep);border-radius:999px;padding:10px 14px;cursor:pointer;font-weight:700}
+.card{background:rgba(255,255,255,.88);border:1px solid #f7d3e2;border-radius:28px;padding:24px 20px;box-shadow:0 12px 35px #d66b9820;min-height:520px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden}
+.bow{color:#e88ab4;font-size:24px;letter-spacing:7px;margin:0 0 8px}
+h1{font-size:clamp(27px,7vw,42px);line-height:1.12;color:var(--pink);margin:7px 0 12px}
+h2{font-size:clamp(22px,5vw,30px);color:var(--pink);margin:8px 0 14px}
+p{font-size:16px;line-height:1.75;margin:9px 0;max-width:590px}
+.small{font-size:13px;color:#b66a8b}
+.art{font-size:clamp(52px,14vw,88px);line-height:1.25;margin:10px 0 14px;filter:drop-shadow(0 6px 4px #eaa1c033)}
+.sticker{background:#fff0f6;border:1px dashed #e8a7c4;border-radius:20px;padding:14px 16px;margin:12px 0;width:100%;max-width:560px}
+.pages{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin:0 0 14px}
+.navbtn{padding:8px 11px;font-size:13px}
+.navbtn[aria-current="page"]{background:#e88ab4;color:white;border-color:#e88ab4}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:18px}
+.next{background:#e88ab4;color:white;border:0;padding:12px 20px;box-shadow:0 5px 14px #e88ab455}
+.prev{background:white;color:var(--deep);border:1px solid var(--line);border-radius:999px;padding:12px 18px;cursor:pointer}
+.hidden{display:none!important}
+.heart{color:#e88ab4}
+.section{width:100%;border-top:1px dashed var(--line);margin-top:15px;padding-top:12px}
+footer{text-align:center;color:#bd7897;font-size:12px;margin-top:16px}
+@media(max-width:420px){.card{padding:20px 15px;min-height:570px}.navbtn{font-size:12px;padding:7px 9px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">୨୧ NAYAB AAPA ୨୧</div>
+    <button class="music" id="musicBtn" type="button">♫ Music: off</button>
+  </div>
+  <nav class="pages" aria-label="Birthday pages" id="nav"></nav>
+  <main class="card">
+    <div class="bow">୨୧ 🎀 ୨୧</div>
+    <div id="content"></div>
+    <div class="actions">
+      <button class="prev" id="prev" type="button">← Back</button>
+      <button class="next" id="next" type="button">Next surprise ♡</button>
+    </div>
+  </main>
+  <footer>made with love, duas & a little bakwaas ♡</footer>
+</div>
+<script>
+const pages = [
+`<div class="art">🐒 🎀 🐶</div>
+<h1>Happyyy Birthdayyy Baajiiii! 🎂💗</h1>
+<p><b>Aap soch rahi hongi na ki ye kya hai? 😝</b></p>
+<p>To actually mai bore ho raha tha, toh socha kyun na apni pyaari si Baaji ke liye kuch alag kiya jaaye. 😝</p>
+<p>Toh ye raha aapka ek bohot hi chhota sa, I mean aapke jitna bada surprise... arey nahi nahi, chhota hi hai! 😭</p>
+<p>Zyada kuch nahi hai, bas thodi si masti, thodi si bakwaas aur dher saara pyaar! Hope so aapko pasand aaye. 🥹💗</p>
+<div class="sticker"><b>Ready hain Baaji? 👀</b><br>Open your little surprise 🎁</div>`,
+`<div class="art">🌷🐶🎀</div>
+<h2>୨୧ A Little Wish For You ୨୧</h2>
+<p><b>Happiest Birthday Nayab Aapa! 💗</b></p>
+<p>Sabse pehle toh Allah aapko hamesha khush rakhe, aapki har jaiz dua qubool kare aur aapke saare dreams poore kare. Aapki zindagi mein hamesha khushiyan, sukoon aur barkat rahe. Ameen! 🥹</p>
+<p>Aap jo bhi achieve karna chahti hain, Allah aapke liye uske raaste aasaan kare. Aur haan, aap hamesha aise hi haste rehna... bas kabhi kabhi gussa thoda kam kar diya kariye. 😭</p>
+<p>I hope aapka har aane wala din aaj se bhi zyada beautiful ho. Aapko life mein woh sab mile jo aap deserve karti hain. Aur kabhi apne aap ko akela mat samajhna, aapke chhote bhai ki taraf se bohot saari duayein hain. ❤️</p>
+<div class="sticker"><b>Stay happy, stay blessed Baaji! 🎀</b></div>`,
+`<div class="art">🎀 🌸 👠</div>
+<h2>A Few Things That Make You Special ♡</h2>
+<p>Baaji, aapki kuch baatein hain jo aapko special banati hain. Aapka care karna, zaroorat ke waqt saath dena aur apne tareeke se sabko important feel karwana. 🥹</p>
+<p>Aur haan, aapka gussa bhi aapki personality ka part hai... lekin uska subscription thoda cancel karwa dete hain. 😭😂</p>
+<div class="section"><div class="art">👠✨</div><h2>A little luxury wish</h2>
+<p>One day, may you get all the beautiful things you've dreamed of.</p>
+<p><b>Including those pretty YSL heels! 👠🎀</b></p>
+<p class="small">Manifesting luxury for Baaji ୨୧</p></div>`,
+`<div class="art">🐒 💗 🐶</div>
+<h2>Our Little Memories ♡</h2>
+<p>Waise toh humare paas koi photo gallery nahi hai, lekin iska matlab ye thodi hai ki memories nahi hain! 😂</p>
+<p>Kabhi hasi-mazaak, kabhi nok-jhok, kabhi aapka gussa aur kabhi meri bakwaas... bas isi tarah chhoti-chhoti cheezein special ban jaati hain. 💗</p>
+<div class="sticker"><div class="art">🐒 🃏 🐶</div><b>No pictures, just vibes! 😭</b><p>Aap chahe jitna daant lo, chhota bhai toh chhota bhai hi rahega. 😝</p></div>
+<div class="section"><h2>The Actual Memories 😂</h2>
+<div class="art">🃏🙈</div><p>Aapka UNO mein cheating karna ya phir bina kisi reason ke itna overconfident hona... Baaji, ye sab notice hota hai! 😝😂</p>
+<div class="art">🐒 🛵 🐶</div><p>Aur woh subah-subah scooty seekhne jaana... honestly, ye chhoti-chhoti memories bhi kaafi special hain. 🥹</p>
+<p>And yrr, always thank you for everything. Jab bhi mujhe zaroorat thi, aapne mera saath diya. Shayad main har baar express nahi karta, but I genuinely appreciate everything you've done for me.</p>
+<b>Thank you for being my Baaji! ୨୧</b></div>`,
+`<div class="art">🐶📜🐒</div>
+<h2>Baaji, ek baat kahun? 👉🏽👈🏽</h2>
+<p>Ywrrr, thoda gussa kam kiya karo na! 😭 Har chhoti-chhoti baat par gussa aur naraz bhi ho jaati ho. Kabhi-kabhi apne chhote bhai ki bakwaas bhi tolerate kar liya karo. 😝</p>
+<p>Aur ek baat... maine aapke liye itna kuch kiya hai yrrr, at least ek Hot Wheels ya phir jersey toh dila hi sakti thi! 🙃👉🏽👈🏽</p>
+<div class="sticker"><div class="art">🏎️ 🎁 👕</div><b>Just saying, Baaji... 😂</b><p class="small">This complaint is filed with love. ୨୧</p></div>`,
+`<div class="art">🐒 💗 🐶</div>
+<h2>Before You Go... 💗</h2>
+<p>Baaji, jokes apart, thank you for being there whenever I needed you. Shayad main hamesha express nahi kar pata, but aap mere liye genuinely special ho.</p>
+<p>Allah aapko hamesha khush rakhe, sehat de, lambi aur barkat wali zindagi de aur aapki har achhi khwahish poori kare. Ameen! 🤲🏻</p>
+<div class="sticker"><h2>Once again, Happiest Birthday Nayab Aapa! 🎂</h2>
+<p>Aur haan, Allah kare aapko Abu Bakr jaise ...... mile 😁🤧</p></div>
+<p><b>From your annoying little brother 😝</b></p>
+<p class="small">Made with love, duas & a little bakwaas. ୨୧</p>`
+];
+const labels=["Welcome","Birthday Wish","Special Things","Memories","One Request","Final Surprise"];
+let current=0;
+const content=document.getElementById("content"), nav=document.getElementById("nav");
+function render(){
+ content.innerHTML=pages[current];
+ nav.innerHTML=labels.map((label,i)=>`<button class="navbtn" type="button" data-page="${i}" ${i===current?'aria-current="page"':''}>${i+1}. ${label}</button>`).join("");
+ nav.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{current=Number(b.dataset.page);render()}));
+ document.getElementById("prev").classList.toggle("hidden",current===0);
+ document.getElementById("next").textContent=current===pages.length-1?"Back to beginning ♡":"Next surprise ♡";
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+document.getElementById("prev").addEventListener("click",()=>{if(current>0){current--;render()}});
+document.getElementById("next").addEventListener("click",()=>{current=current===pages.length-1?0:current+1;render()});
+render();
+// Optional original, simple synthesized tune. Starts only after the visitor taps the music button.
+let audioCtx=null, musicTimer=null, noteIndex=0;
+const notes=[523.25,659.25,783.99,659.25,587.33,698.46,783.99,698.46];
+function playNote(){
+ if(!audioCtx)return;
+ const osc=audioCtx.createOscillator(), gain=audioCtx.createGain();
+ osc.type="sine"; osc.frequency.value=notes[noteIndex++%notes.length];
+ gain.gain.setValueAtTime(.0001,audioCtx.currentTime);
+ gain.gain.exponentialRampToValueAtTime(.045,audioCtx.currentTime+.03);
+ gain.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.28);
+ osc.connect(gain);gain.connect(audioCtx.destination);osc.start();osc.stop(audioCtx.currentTime+.3);
+}
+document.getElementById("musicBtn").addEventListener("click",async()=>{
+ const btn=document.getElementById("musicBtn");
+ if(musicTimer){clearInterval(musicTimer);musicTimer=null;btn.textContent="♫ Music: off";return}
+ audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+ await audioCtx.resume();playNote();musicTimer=setInterval(playNote,360);btn.textContent="♫ Music: on";
+});
+</script>
+</body>
+</html>
